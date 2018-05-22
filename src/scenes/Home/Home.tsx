@@ -28,7 +28,7 @@ export default class Home extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <p>hello</p>
+        <h1 style={{ textAlign: "center" }}>Ti amo</h1>
         <Map
           center={{ lat: 45.6716977, lng: 11.9265608 }}
           containerElement={<div style={{ height: `400px` }} />}
