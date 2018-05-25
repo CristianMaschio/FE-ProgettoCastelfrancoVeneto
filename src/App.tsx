@@ -8,6 +8,7 @@ import ItemDetails from "./scenes/ItemDetails/ItemDetails";
 class App extends React.Component {
   public render() {
     return (
+      
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Lab" exact component={Lab} />

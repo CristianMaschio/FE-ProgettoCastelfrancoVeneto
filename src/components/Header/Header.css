@@ -1,0 +1,36 @@
+.header {
+    overflow: hidden;
+    background-color: #FF9900;
+    height: 3em;
+    padding-right: 1em;
+  }
+
+  .header a{
+      display: flex;
+      color: #FBFEF9;
+      padding-left: 1em;
+      align-items: center;
+      vertical-align: center;
+      height: 100%;
+      margin: auto;
+  }
+  /* Change the background color on mouse-over */
+.header a:hover {
+    color: black;
+  }
+  
+  /* Style the active/current link*/
+  .header a.active {
+    color: white;
+  }
+
+.leftHeader {
+    float: left;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.rightHeader {
+    float: right;
+    font-weight: bold;
+}

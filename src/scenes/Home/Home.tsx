@@ -1,3 +1,4 @@
+import "./Home.css";
 import * as React from "react";
 import Map from "../../components/Map/Map";
 import { Place } from "../../services/models/Place";
@@ -24,11 +25,10 @@ export default class Home extends React.Component<Props, State> {
       if (places) this.setState({ places });
     });
   }
-
   render() {
     return (
-      <div>
-        <h1 style={{ textAlign: "center" }}>NearToMe</h1>
+      <div className="home">
+        <h2>NearToMe</h2>
         <Map
           center={{ lat: 45.6716977, lng: 11.9265608 }}
           containerElement={<div style={{ height: `400px` }} />}
