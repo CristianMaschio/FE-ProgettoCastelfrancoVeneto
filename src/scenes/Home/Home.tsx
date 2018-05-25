@@ -4,6 +4,7 @@ import Map from "../../components/Map/Map";
 import { Place } from "../../services/models/Place";
 import { getPlaces } from "../../services/api/places";
 import Spinner from "../../components/Spinner/Spinner";
+import ListPlacePreview from "../../components/ListPlacePreview/ListPlacePreview";
 
 interface Props {}
 
@@ -43,6 +44,7 @@ export default class Home extends React.Component<Props, State> {
           mapElement={<div style={{ height: `100%` }} />}
           places={this.state.places}
         />
+        <ListPlacePreview places={this.state.places}/>
       </div>
     );
   }

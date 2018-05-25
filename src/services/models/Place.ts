@@ -11,6 +11,7 @@ export type Place = Readonly<{
   isStand: Boolean;
   coordinate: Coordinate;
   details: PlaceDetail[];
+  tags: Tags[];
 }>;
 
 export type PlaceDetail = Readonly<{
@@ -29,8 +30,8 @@ export type Tags = Readonly<{
   title: string;
 }>;
 
-export function getPlaceDate(place: Place) {
-  return format(place.startDate, "ddd, DD MMM - HH:mm");
+export function getPlaceDate(date: string) {
+  return format(date, "DD/MM/YYYY - HH:mm");
 }
 
 export function isPastPlace(place: Place) {

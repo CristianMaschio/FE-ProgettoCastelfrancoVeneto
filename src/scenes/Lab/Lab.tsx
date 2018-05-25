@@ -1,5 +1,4 @@
 import * as React from "react";
-import ListPlacePreview from "../../components/ListPlacePreview/ListPlacePreview";
 
 interface Props {}
 
@@ -20,7 +19,6 @@ export default class Lab extends React.Component<Props, State> {
         <h1 style={{ textAlign: "center" }}>Prova</h1>
         
         <h2>Lab: ListPlacePreview</h2>
-        <ListPlacePreview />
       </div>
     );
   }
