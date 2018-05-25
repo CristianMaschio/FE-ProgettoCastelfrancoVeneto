@@ -6,5 +6,5 @@ export function getPlaces(): Promise<Place[]> {
 }
 
 export function getPlace(placeId: string) {
-  return callAPI<Place>(`${placeId}`);
+  return callAPI<Place>(`places/${placeId}`);
 }
