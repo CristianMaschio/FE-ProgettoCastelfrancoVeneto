@@ -7,7 +7,7 @@ export type Place = Readonly<{
   description: string;
   image: string;
   date: string;
-  isStand: string;
+  isStand: Boolean;
   coordinate: Coordinate;
   details: PlaceDetail[];
 }>;
