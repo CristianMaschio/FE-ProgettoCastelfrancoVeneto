@@ -10,7 +10,7 @@ export default class PlacePreview extends React.PureComponent {
       <div className="container">
 
         {/* Normal card */}
-        <Link to='/ItemPage'>
+        <Link to='/Item/5b0851e44654ae00140fa489'>
           <div className="card fadeInLeft">
             <div className="card-image-container">
               <div className="card-image" style={{ backgroundImage: `url(https://picsum.photos/200/300)` }} />
@@ -31,7 +31,7 @@ export default class PlacePreview extends React.PureComponent {
         </Link>
 
         {/* Event card */}
-        <Link to='/ItemPage'>
+        <Link to='/Item/5b0851e44654ae00140fa489'>
           <div className="card fadeInLeft">
             <div className="card-image-container">
               <div className="card-image" style={{ backgroundImage: `url(https://picsum.photos/201/300)` }} />
