@@ -7,9 +7,10 @@ import Lab from "./scenes/Lab/Lab";
 class App extends React.Component {
   public render() {
     return (
+      
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/Lab" exact component={Lab} />
+        <Route path="/lab" exact component={Lab} />
       </Switch>
     );
   }
