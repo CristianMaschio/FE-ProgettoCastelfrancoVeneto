@@ -1,0 +1,27 @@
+.place-page {
+    display: block;
+    border-radius: 4px;
+    height: 30em;
+    margin:  1em;
+  }
+
+  
+  .place-page-picture {
+    height: 30em;
+  }
+  
+  @media (min-width: 768px) {
+    .place-page-header {
+      height: 30em;
+      width: 20em;
+    }
+    
+  .place-page .l2{
+    padding-left: 20em;
+}
+    .place-page-picture {
+      position: absolute;
+      height: 20em;
+    }
+  }
+  

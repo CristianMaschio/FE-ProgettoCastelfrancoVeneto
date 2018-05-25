@@ -21,9 +21,9 @@ export default class PlacePreview extends React.Component<Props> {
         <div className="media-body fs-1">
           <span className="text-uppercase">{getPlaceDate(place)}</span>
           <h5 className="place-preview-title">
-            <Link to={`/`}>{place.name}</Link>
+            <Link to={`/Item/${place.id}`}>{place.name}</Link>
           </h5>
-          <div>{place.description}</div>
+          <p>{place.description}</p>
         </div>
       </div>
     );
