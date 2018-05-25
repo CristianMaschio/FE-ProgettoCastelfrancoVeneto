@@ -3,10 +3,11 @@ import { format, isPast } from "date-fns";
 export type Place = Readonly<{
   id?: string;
   name: string;
-  title: string;
   description: string;
   image: string;
-  date: string;
+  rate: number;
+  startDate: string;
+  endDate: string;
   isStand: Boolean;
   coordinate: Coordinate;
   details: PlaceDetail[];
@@ -15,6 +16,7 @@ export type Place = Readonly<{
 export type PlaceDetail = Readonly<{
   image: string;
   description: string;
+  tags: Tags[];
 }>;
 
 export type Coordinate = Readonly<{
@@ -22,10 +24,15 @@ export type Coordinate = Readonly<{
   longitude: number;
 }>;
 
+export type Tags = Readonly<{
+  value: string;
+  title: string;
+}>;
+
 export function getPlaceDate(place: Place) {
-  return format(place.date, "ddd, DD MMM - HH:mm");
+  return format(place.startDate, "ddd, DD MMM - HH:mm");
 }
 
 export function isPastPlace(place: Place) {
-  return isPast(place.date);
+  return isPast(place.endDate);
 }

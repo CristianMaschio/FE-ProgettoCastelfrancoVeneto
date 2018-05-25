@@ -3,6 +3,7 @@ import * as React from "react";
 import Map from "../../components/Map/Map";
 import { Place } from "../../services/models/Place";
 import { getPlaces } from "../../services/api/places";
+import Spinner from "../../components/Spinner/Spinner";
 
 interface Props {}
 
@@ -26,6 +27,13 @@ export default class Home extends React.Component<Props, State> {
     });
   }
   render() {
+    if (this.state.places.length === 0) {
+      return (
+        <div className="event">
+          <Spinner />
+        </div>
+      );
+    }
     return (
       <div className="home">
         <h2>NearToMe</h2>
