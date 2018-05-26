@@ -1,7 +1,7 @@
 import "./ImageScan.css";
 import * as React from "react";
 import Spinner from "../../components/Spinner/Spinner";
-import Webcam from 'react-webcam';
+// import Webcam from 'react-webcam';
 import fetch from 'isomorphic-fetch';
 
 // import { callAPI_ } from "../../services/api/callAPI";
@@ -12,7 +12,7 @@ interface State { webcamSwitch: boolean; }
 
 export default class ImageScan extends React.PureComponent<Props, State> {
 
-  private webcam = null;
+  // private webcam = null;
 
   constructor(props) {
     super(props);
@@ -25,53 +25,63 @@ export default class ImageScan extends React.PureComponent<Props, State> {
   }
 
   setRef = (webcam) => {
-    this.webcam = webcam;
+    // this.webcam = webcam;
   }
 
   capture = () => {
 
     this.setState({ webcamSwitch: false });
-    const imageSrc = this.webcam.getScreenshot();
 
-    const BASE64_MARKER = ';base64,';
-    if (imageSrc.indexOf(BASE64_MARKER) === -1) {
-      const parts = imageSrc.split(',');
-      const contentType = parts[0].split(':')[1];
-      const raw = decodeURIComponent(parts[1]);
-      return new Blob([raw], { type: contentType });
-    }
+    navigator.getUserMedia({ video: true }, function(stream) {
+      const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
+      const canvas: HTMLCanvasElement = document.getElementById("c") as HTMLCanvasElement;
+      video.src = window.URL.createObjectURL(stream);
 
-    const _parts = imageSrc.split(BASE64_MARKER);
-    const _contentType = _parts[0].split(':')[1];
-    const _raw = window.atob(_parts[1]);
-    const rawLength = _raw.length;
+      canvas.getContext("2d").drawImage(video, 0, 0, 300, 300, 0, 0, 300, 300);
+      const imageSrc = canvas.toDataURL("image/png");
 
-    const uInt8Array = new Uint8Array(rawLength);
-
-    for (let i = 0; i < rawLength; ++i) {
-      uInt8Array[i] = _raw.charCodeAt(i);
-    }
-
-    return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image?iterationId=e9c0e087-f1fc-4cb5-8b8c-82d7eca709c8', {
-      method: 'POST',
-      mode: 'CORS',
-      body: new Blob([uInt8Array], { type: _contentType }),
-      headers: {
-        'Content-Type': 'application/octet-stream',
-        'Prediction-Key': '156e4ef9a72e46c5a103c17691463b0f',
+      const BASE64_MARKER = ';base64,';
+      if (imageSrc.indexOf(BASE64_MARKER) === -1) {
+        const parts = imageSrc.split(',');
+        const contentType = parts[0].split(':')[1];
+        const raw = decodeURIComponent(parts[1]);
+        return new Blob([raw], { type: contentType });
       }
-    })
-      .then(res => {
-        console.log(res);
-        return res.json();
-      })
-      .then(json => {
-        console.log(json);
-        if (json.predictions.length > 0) {
-          alert(json.predictions[0].tagName);
+
+      const _parts = imageSrc.split(BASE64_MARKER);
+      const _contentType = _parts[0].split(':')[1];
+      const _raw = window.atob(_parts[1]);
+      const rawLength = _raw.length;
+
+      const uInt8Array = new Uint8Array(rawLength);
+
+      for (let i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = _raw.charCodeAt(i);
+      }
+
+      return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image?iterationId=e9c0e087-f1fc-4cb5-8b8c-82d7eca709c8', {
+        method: 'POST',
+        mode: 'CORS',
+        body: new Blob([uInt8Array], { type: _contentType }),
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Prediction-Key': '156e4ef9a72e46c5a103c17691463b0f',
         }
       })
-      .catch(err => err);
+        .then(res => {
+          console.log(res);
+          return res.json();
+        })
+        .then(json => {
+          console.log(json);
+          if (json.predictions.length > 0) {
+            alert(json.predictions[0].tagName);
+          }
+        })
+        .catch(err => err);
+
+    }, function(err) { alert("there was an error " + err); });
+
   }
 
   render() {
@@ -84,14 +94,16 @@ export default class ImageScan extends React.PureComponent<Props, State> {
     }
     return (
       <div className="container">
-        {this.state.webcamSwitch && <Webcam
+        {/* {this.state.webcamSwitch && <Webcam
           audio={false}
           height={window.innerHeight - 200}
           width={window.innerWidth}
           ref={this.setRef}
           screenshotFormat="image/jpeg"
-        />}
+        />} */}
         <button onClick={this.capture}>Capture photo</button>
+        <video id="v" width="400" height="300" />
+        <canvas id="c" width="400" height="300" />
       </div>
     );
   }
