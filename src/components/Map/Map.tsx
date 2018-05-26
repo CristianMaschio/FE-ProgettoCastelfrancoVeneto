@@ -7,7 +7,7 @@ import {
 } from "react-google-maps";
 import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 import PlacePreview from "../PlacePreview/PlacePreview";
-import { Place } from "../../services/models/Place";
+import { Place, Coordinate  } from "../../services/models/Place";
 
 type Props = {
   center: { lat: number; lng: number };
@@ -16,14 +16,24 @@ type Props = {
 
 type State = {
   activeMarkerId: string;
+  position: Coordinate;
 };
 
 class Map extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      activeMarkerId: ""
+      activeMarkerId: "",
+      position: null
     };
+
+    this.handlePosition = this.handlePosition.bind(this);
+  }
+
+  componentWillMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.handlePosition);
+    }
   }
 
   handleToggleMarker(markerId: string) {
@@ -64,6 +74,15 @@ class Map extends React.Component<Props, State> {
     );
   }
 
+  handlePosition(position) {
+    this.setState({
+      position: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+    });
+  }
+
   render() {
     const places = this.props.places;
     const placeMarkers =
@@ -76,6 +95,13 @@ class Map extends React.Component<Props, State> {
       <GoogleMap defaultZoom={16} defaultCenter={this.props.center}>
         <MarkerClusterer averageCenter gridSize={30}>
           {placeMarkers}
+          {this.state.position &&
+      <Marker
+        position={{
+          lat: this.state.position.latitude,
+          lng: this.state.position.longitude
+        }}
+      />}
         </MarkerClusterer>
       </GoogleMap>
     );
