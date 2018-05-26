@@ -19,7 +19,7 @@ export default class PlacePreview extends React.Component<Props> {
           alt={place.name}
         />
         <div className="marker-text">
-          {!place.isStand && (
+          {place.isStand && (
             <>
               <span>Inzio:</span>
               <span style={{float: "right"}}>{getPlaceDate(place.startDate)}</span>

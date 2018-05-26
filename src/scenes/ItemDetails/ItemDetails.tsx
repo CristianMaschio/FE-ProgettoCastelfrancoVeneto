@@ -8,45 +8,45 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const images = [
   {
-    src: "https://picsum.photos/564/487",
-    thumbnail: "https://picsum.photos/564/487",
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/bolasco_29.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/bolasco_29.jpg",
     thumbnailWidth: 564,
     thumbnailHeight: 487,
     isSelected: false,
     caption: "After Rain (Jeshu John - designerspics.com)"
   },
   {
-    src: "https://picsum.photos/789/456",
-    thumbnail: "https://picsum.photos/789/456",
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/giorgione_sezione.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/giorgione_sezione.jpg",
     thumbnailWidth: 789,
     thumbnailHeight: 456,
     caption: "Boats (Jeshu John - designerspics.com)"
   },
   {
-    src: "https://picsum.photos/984/600",
-    thumbnail: "https://picsum.photos/984/600",
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/teatro_accademico.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/teatro_accademico.jpg",
     thumbnailWidth: 984,
     thumbnailHeight: 600
   },
   {
-    src: "https://picsum.photos/94/200",
-    thumbnail: "https://picsum.photos/94/200",
-    thumbnailWidth: 94,
-    thumbnailHeight: 200
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/il_castello.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/il_castello.jpg",
+    thumbnailWidth: 2000,
+    thumbnailHeight: 800
   }
   ,
   {
-    src: "https://picsum.photos/700/600",
-    thumbnail: "https://picsum.photos/700/600",
-    thumbnailWidth: 700,
-    thumbnailHeight: 600
-  }
-  ,
-  {
-    src: "https://picsum.photos/486/569",
-    thumbnail: "https://picsum.photos/486/569",
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/bolasco2.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/bolasco2.jpg",
     thumbnailWidth: 486,
     thumbnailHeight: 569
+  }
+  ,
+  {
+    src: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/dumo.jpg",
+    thumbnail: "https://www.comune.castelfrancoveneto.tv.it/public/foto/citta/dumo.jpg",
+    thumbnailWidth: 1000,
+    thumbnailHeight: 600
   }
 ];
 
