@@ -22,20 +22,21 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       webcamSwitch: true
     };
 
-    const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
-    navigator.mediaDevices.enumerateDevices().then(res => {
-      console.log(res);
-      navigator.getUserMedia({ video: { deviceId: res[5].deviceId } }, (stream) => {
-        video.src = window.URL.createObjectURL(stream);
-      }, function(err) { alert("there was an error " + err); });
-
-    });
-
     this.capture = this.capture.bind(this);
   }
 
   setRef = (webcam) => {
     // this.webcam = webcam;
+  }
+
+  startStream = () => {
+    navigator.mediaDevices.enumerateDevices().then(res => {
+      console.log(res);
+      navigator.getUserMedia({ video: { deviceId: res[5].deviceId } }, (stream) => {
+        const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
+        video.src = window.URL.createObjectURL(stream);
+      }, (err) => { alert("there was an error " + err); });
+    });
   }
 
   capture = () => {
@@ -107,6 +108,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
           ref={this.setRef}
           screenshotFormat="image/jpeg"
         />} */}
+        <button onClick={this.startStream}>Stream</button>
         <button onClick={this.capture}>Capture photo</button>
         <video id="v" width="400" height="300" />
         <canvas id="c" width="400" height="300" />
