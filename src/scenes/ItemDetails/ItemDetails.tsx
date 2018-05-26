@@ -58,7 +58,7 @@ interface State {
   error: string;
 }
 
-export default class ItemDetails extends React.PureComponent<Props, State> {
+export default class ItemDetails extends React.Component<Props, State> {
   constructor(props) {
     super(props);
 
@@ -70,14 +70,12 @@ export default class ItemDetails extends React.PureComponent<Props, State> {
 
   componentWillMount() {
     const itemId = this.props.match.params.itemId;
-    console.log(itemId);
     getPlace(itemId).then(place => {
       if (!place) {
         this.setState({
           error: "L'oggetto non è stato trovato nel database 😥"
         });
       } else {
-        console.log(place);
         this.setState({ place });
       }
     });

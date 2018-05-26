@@ -36,7 +36,6 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
           </div>
           <div className="card-description">
             <div className="flex row">
-              <span className="title">{place.name}</span>
               {!place.isStand && (
                 <StarRatingComponent
                   className="star-rating"
@@ -45,6 +44,9 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                   value={place.rate}
                 />
               )}
+            </div>
+            <div className="flex row">
+              <span className="title">{place.name}</span>
             </div>
             {place.isStand && (
               <>
@@ -79,7 +81,8 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
             <span className="descriptionItem">{this.getShortDescription(place.description)} </span>
             <div className="tag">
               <span className="tag-title">
-                {place.tags.map(tag => tag.title)})}
+                #luogo
+                {/* {place.tags.map(tag => tag.title)})} */}
               </span>
             </div>
           </div>

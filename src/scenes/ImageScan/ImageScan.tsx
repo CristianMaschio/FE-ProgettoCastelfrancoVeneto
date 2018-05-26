@@ -1,9 +1,9 @@
 import "./ImageScan.css";
 import * as React from "react";
 import Spinner from "../../components/Spinner/Spinner";
-// import Webcam from 'react-webcam';
 import fetch from 'isomorphic-fetch';
 
+// Triggered somewhere
 // import { callAPI_ } from "../../services/api/callAPI";
 // import * as clm from "./js/clmtrackr.js";
 
@@ -82,7 +82,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
     for (let i = 0; i < rawLength; ++i) {
       uInt8Array[i] = _raw.charCodeAt(i);
     }
-    this.setState({webcamSwitch: true});
+    this.setState({ webcamSwitch: true });
     return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image', {
       method: 'POST',
       mode: 'CORS',
@@ -98,9 +98,9 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       })
       .then(json => {
         console.log(json);
-        this.setState({webcamSwitch: false});
+        this.setState({ webcamSwitch: false });
         if (json.predictions.length > 0) {
-          alert(json.predictions[0].tagName);
+          window.location.pathname = '/Item/' + json.predictions[0].tagName;
         }
       })
       .catch(err => err);
