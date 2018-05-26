@@ -1,0 +1,112 @@
+/* NEW STUFF */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  min-height: 90vh;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  padding: 4vw;
+}
+
+.right {
+  padding: 4vw;
+  overflow: scroll;
+  overflow-x: auto;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  /* height: 60vh; */
+  /* padding: 10vw;
+  padding-top: 0;
+  padding-bottom: 0; */
+}
+
+.place-image {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-size: cover;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title {
+  margin-top: var(--big);
+}
+
+.description {
+  margin-top: var(--big);
+}
+
+.my-tag-row {
+  margin-top: var(--big);
+  min-width: 100%;
+  min-height: 4vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.my-tag-contaiener {
+  margin: auto;
+  margin-right: 0;
+  display: flex;
+}
+
+.my-tag {
+  padding: 3px;
+  border-radius: 500px;
+  margin-right: 10px;
+  border: solid black 1px;
+}
+
+.margin-bottom {
+  margin-bottom: var(--big);
+}
+
+:root {
+  --big: 26px;
+  --normal: 20px;
+  --small: 18px;
+}
+
+@media only screen and (max-width: 700px) {
+  :root {
+    --big: 24px;
+    --normal: 18px;
+    --small: 15px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .right {
+    width: 100%;
+    padding: 0;
+    overflow: visible;
+    overflow-x: visible;
+  }
+  .left {
+    width: 100%;
+    padding: 0;
+  }
+  .place-image {
+    height: 20em;
+  }
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../services/fonts/Raleway-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../services/fonts/Raleway-Regular.ttf) format("truetype");
+}
