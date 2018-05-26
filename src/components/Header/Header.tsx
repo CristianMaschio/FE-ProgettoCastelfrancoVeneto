@@ -8,7 +8,7 @@ export default class Header extends React.PureComponent {
     return (
       <header className={`header`}>
         <Link to={`/`} className="leftHeader a">NearToMe</Link>
-        <Link to={`/`} className="rightHeader a">Scopri cos'è?</Link>
+        <Link to={`/ImageScan`} className="rightHeader a">Scopri cos'è?</Link>
       </header>
     );
   }
