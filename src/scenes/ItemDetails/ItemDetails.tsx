@@ -106,7 +106,7 @@ export default class ItemDetails extends React.PureComponent<Props, State> {
         </div>
         <div className="right">
           <h1 className="title">{this.state.place.name}</h1>
-          <p className="description">{this.state.place.description}</p>
+          <p className="descriptionItem">{this.state.place.description}</p>
 
           <div className="my-tag-row">
 

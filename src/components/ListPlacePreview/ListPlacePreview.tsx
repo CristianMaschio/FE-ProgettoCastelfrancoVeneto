@@ -68,7 +68,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                 </div>
               </>
             )}
-            <p className="description">{place.description} </p>
+            <span className="descriptionItem">{place.description} </span>
             <div className="tag">
               <span className="tag-title">
                 {place.tags.map(tag => tag.title)})}

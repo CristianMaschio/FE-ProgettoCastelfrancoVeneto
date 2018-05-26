@@ -77,6 +77,14 @@
   --small: 18px;
 }
 
+.descriptionItem {
+  color: black;
+  font-size: var(--small);
+  margin: auto;
+  margin-left: 0;
+  font-family: 'Raleway-Regular', monospace;
+}
+
 @media only screen and (max-width: 700px) {
   :root {
     --big: 24px;
