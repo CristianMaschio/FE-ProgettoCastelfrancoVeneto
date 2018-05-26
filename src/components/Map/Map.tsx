@@ -48,7 +48,7 @@ class Map extends React.Component<Props, State> {
 
   getMarker(isStand: Boolean) {
     if (!isStand) return require("./markerPlace.png");
-    else require("./marker.png");
+    else return require("./marker.png");
   }
 
   renderPlaceMarker(place: Place) {
