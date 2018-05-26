@@ -100,7 +100,7 @@ export default class ItemDetails extends React.PureComponent<Props, State> {
       );
     }
     return (
-      <div className="container">
+      <div className="container-item">
         <div className="left">
           <div className="place-image" style={{ backgroundImage: `url(` + this.state.place.image + `)` }} />
         </div>

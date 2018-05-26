@@ -1,6 +1,6 @@
 /* NEW STUFF */
 
-.container {
+.container-item {
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -83,7 +83,7 @@
     --normal: 18px;
     --small: 15px;
   }
-  .container {
+  .container-item  {
     flex-direction: column;
   }
   .right {
