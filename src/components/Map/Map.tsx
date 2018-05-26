@@ -36,6 +36,11 @@ class Map extends React.Component<Props, State> {
     return markerId === this.state.activeMarkerId;
   }
 
+  getMarker(isStand: Boolean) {
+    if (!isStand) return require("./markerPlace.png");
+    else require("./marker.png");
+  }
+
   renderPlaceMarker(place: Place) {
     console.log(place);
     return (
@@ -45,7 +50,7 @@ class Map extends React.Component<Props, State> {
           lat: place.coordinate.latitude,
           lng: place.coordinate.longitude
         }}
-        icon={require("./marker.png")}
+        icon={this.getMarker(place.isStand)}
         onClick={() => this.handleToggleMarker(place.id)}
       >
         {this.isMarkerOpen(place.id) && (

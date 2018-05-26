@@ -2,13 +2,14 @@
   --big: 26px;
   --normal: 20px;
   --small: 18px;
-  --card-size: 25%;
+  --verySmall: 15px;
+  --card-size: 700px;
   --image-size: 25%;
 }
 
 @media only screen and (max-width: 1000px) {
   :root {
-    --card-size: 60%;
+    --card-size: 70%;
     --image-size: 30%;
   }
 }
@@ -18,6 +19,7 @@
     --big: 24px;
     --normal: 18px;
     --small: 16px;
+    --verySmall: 12px;
     --card-size: 90%;
     --image-size: 35%;
   }
@@ -93,7 +95,7 @@ a {
 .sub-title {
   text-decoration: none;
   color: black;
-  font-size: var(--small);
+  font-size: var(--verySmall);
   margin: auto;
   margin-left: 0;
   font-family: 'Raleway-Bold', sans-serif;
