@@ -37,14 +37,17 @@ export default class Home extends React.Component<Props, State> {
     }
     return (
       <div className="home">
-        <h2>NearToMe</h2>
+        <h4 style={{ margin: "0.5em", textAlign: "center" }}>
+        😎 Scopri e conosci quello che hai attorno a te con la nuova app di
+          Castelfranco Veneto 😎
+        </h4>
         <Map
           center={{ lat: 45.6716977, lng: 11.9265608 }}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
           places={this.state.places}
         />
-        <ListPlacePreview places={this.state.places}/>
+        <ListPlacePreview places={this.state.places} />
       </div>
     );
   }

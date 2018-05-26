@@ -2,13 +2,14 @@
   --big: 26px;
   --normal: 20px;
   --small: 18px;
-  --card-size: 25%;
+  --verySmall: 15px;
+  --card-size: 700px;
   --image-size: 25%;
 }
 
 @media only screen and (max-width: 1000px) {
   :root {
-    --card-size: 60%;
+    --card-size: 70%;
     --image-size: 30%;
   }
 }
