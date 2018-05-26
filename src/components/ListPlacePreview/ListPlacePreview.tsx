@@ -47,7 +47,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                     style={{
                       flex: "right",
                       textAlign: "right",
-                      marginRight: "3em"
+                      marginRight: "0.5em"
                     }}
                   >
                     {getPlaceDate(place.startDate)}
@@ -60,7 +60,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                     style={{
                       flex: "right",
                       textAlign: "right",
-                      marginRight: "3em"
+                      marginRight: "0.5em"
                     }}
                   >
                     {getPlaceDate(place.endDate)}

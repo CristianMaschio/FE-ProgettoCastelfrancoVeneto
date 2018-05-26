@@ -31,7 +31,7 @@ export type Tags = Readonly<{
 }>;
 
 export function getPlaceDate(date: string) {
-  return format(date, "DD/MM/YYYY - HH:mm");
+  return format(date, "DD/MM - HH:mm");
 }
 
 export function isPastPlace(place: Place) {
