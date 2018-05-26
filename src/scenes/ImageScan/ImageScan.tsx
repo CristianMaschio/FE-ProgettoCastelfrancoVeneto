@@ -34,8 +34,6 @@ export default class ImageScan extends React.PureComponent<Props, State> {
     document.getElementById("c").style.display = "none";
     document.getElementById("v").style.display = "block";
 
-    this.setState({ webcamSwitch: true });
-
     navigator.mediaDevices.enumerateDevices().then(res => {
       console.log(res);
       if (res.length > 5) {
@@ -84,7 +82,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
     for (let i = 0; i < rawLength; ++i) {
       uInt8Array[i] = _raw.charCodeAt(i);
     }
-
+    this.setState({webcamSwitch: true});
     return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image?iterationId=e9c0e087-f1fc-4cb5-8b8c-82d7eca709c8', {
       method: 'POST',
       mode: 'CORS',
@@ -100,6 +98,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       })
       .then(json => {
         console.log(json);
+        this.setState({webcamSwitch: false});
         if (json.predictions.length > 0) {
           alert(json.predictions[0].tagName);
         }
@@ -109,7 +108,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
   }
 
   render() {
-    if (!this.state) {
+    if (this.state.webcamSwitch) {
       return (
         <div className="event">
           <Spinner />
