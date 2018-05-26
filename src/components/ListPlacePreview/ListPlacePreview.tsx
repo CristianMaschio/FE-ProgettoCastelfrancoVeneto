@@ -37,7 +37,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
           <div className="card-description">
             <div className="flex row">
               <span className="title">{place.name}</span>
-              {place.isStand && (
+              {!place.isStand && (
                 <StarRatingComponent
                   className="star-rating"
                   name="rate1"
@@ -46,7 +46,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                 />
               )}
             </div>
-            {!place.isStand && (
+            {place.isStand && (
               <>
                 <div className="flex row">
                   <span className="sub-title">Data inizio: </span>
