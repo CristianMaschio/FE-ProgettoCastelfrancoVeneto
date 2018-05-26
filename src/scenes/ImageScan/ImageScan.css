@@ -1,5 +1,4 @@
-.overlay,
-.webgl {
+/* .overlay, .webgl {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -7,23 +6,64 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   -ms-filter: fliph;
-  /*IE*/
   filter: fliph;
-  /*IE*/
 }
 
 .videoel {
-  /* display: none; */
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   -ms-filter: fliph;
-  /*IE*/
   filter: fliph;
-  /*IE*/
+} */
+
+.screen-view {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-  position: relative;
-  /* width: 370px; */
+.fotocamera-stream {
+  height: 50vh;
+  max-width: 100%;
+  border: solid 2px black;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.canvas-fotocamera {
+  display: none;
+  height: 50vh;
+  max-width: 100%;
+  border: solid 2px black;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.button-actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.button-stream {
+  font-size: 23px;
+  margin: auto;
+  margin-left: 0;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 500px;
+  border: solid black 2px;
+  font-family: "Raleway-Bold";
+}
+
+.button-camera {
+  font-size: 23px;
+  margin: auto;
+  margin-right: 0;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 500px;
+  border: solid black 2px;
+  font-family: "Raleway-Bold";
 }
