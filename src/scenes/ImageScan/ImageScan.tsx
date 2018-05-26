@@ -83,7 +83,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       uInt8Array[i] = _raw.charCodeAt(i);
     }
     this.setState({webcamSwitch: true});
-    return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image?iterationId=f8a0b844-224c-430b-b640-e862d2ee2901', {
+    return fetch('https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/5e20bca9-cbf2-482f-9d16-123ad906c1f9/image', {
       method: 'POST',
       mode: 'CORS',
       body: new Blob([uInt8Array], { type: _contentType }),
