@@ -12,18 +12,23 @@ export default class PlacePreview extends React.Component<Props> {
     const { place } = this.props;
 
     return (
-      <div className={``}>
+      <div className="marker-container">
         <img
           className="place-preview-picture"
           src={place.image}
           alt={place.name}
         />
-        <div className="media-body fs-1">
-          <span className="text-uppercase">{getPlaceDate(place.startDate)}</span>
+        <div className="marker-text">
+          {!place.isStand && (
+            <>
+              <span>Inzio:</span>
+              <span style={{float: "right"}}>{getPlaceDate(place.startDate)}</span>
+            </>
+          )}
           <h5 className="place-preview-title">
-            <Link to={`/Item/${place.id}`}>{place.name}</Link>
+            <Link style={{color: "#ff9900"}} to={`/Item/${place.id}`}>{place.name}</Link>
           </h5>
-          <p>{place.description}</p>
+          <span className="marker-text">{place.description}</span>
         </div>
       </div>
     );
