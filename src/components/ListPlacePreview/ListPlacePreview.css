@@ -18,6 +18,7 @@
     --big: 24px;
     --normal: 18px;
     --small: 16px;
+    --verySmall: 12px;
     --card-size: 90%;
     --image-size: 35%;
   }
@@ -93,10 +94,10 @@ a {
 .sub-title {
   text-decoration: none;
   color: black;
-  font-size: var(--small);
+  font-size: var(--verySmall);
   margin: auto;
   margin-left: 0;
-  font-family: 'Raleway-Regular', sans-serif;
+  font-family: 'Raleway-Bold', sans-serif;
 }
 
 .star-rating {
