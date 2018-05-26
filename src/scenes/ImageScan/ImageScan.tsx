@@ -35,6 +35,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       navigator.getUserMedia({ video: { deviceId: res[5].deviceId } }, (stream) => {
         const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
         video.src = window.URL.createObjectURL(stream);
+        video.play();
       }, (err) => { alert("there was an error " + err); });
     });
   }
