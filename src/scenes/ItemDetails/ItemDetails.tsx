@@ -8,33 +8,45 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const images = [
   {
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    thumbnail:
-      "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 174,
-    isSelected: true,
+    src: "https://picsum.photos/564/487",
+    thumbnail: "https://picsum.photos/564/487",
+    thumbnailWidth: 564,
+    thumbnailHeight: 487,
+    isSelected: false,
     caption: "After Rain (Jeshu John - designerspics.com)"
   },
   {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    thumbnail:
-      "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 212,
-    tags: [
-      { value: "Ocean", title: "Ocean" },
-      { value: "People", title: "People" }
-    ],
+    src: "https://picsum.photos/789/456",
+    thumbnail: "https://picsum.photos/789/456",
+    thumbnailWidth: 789,
+    thumbnailHeight: 456,
     caption: "Boats (Jeshu John - designerspics.com)"
   },
-
   {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    thumbnail:
-      "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-    thumbnailWidth: 320,
-    thumbnailHeight: 212
+    src: "https://picsum.photos/984/600",
+    thumbnail: "https://picsum.photos/984/600",
+    thumbnailWidth: 984,
+    thumbnailHeight: 600
+  },
+  {
+    src: "https://picsum.photos/94/200",
+    thumbnail: "https://picsum.photos/94/200",
+    thumbnailWidth: 94,
+    thumbnailHeight: 200
+  }
+  ,
+  {
+    src: "https://picsum.photos/700/600",
+    thumbnail: "https://picsum.photos/700/600",
+    thumbnailWidth: 700,
+    thumbnailHeight: 600
+  }
+  ,
+  {
+    src: "https://picsum.photos/486/569",
+    thumbnail: "https://picsum.photos/486/569",
+    thumbnailWidth: 486,
+    thumbnailHeight: 569
   }
 ];
 
@@ -88,30 +100,31 @@ export default class ItemDetails extends React.PureComponent<Props, State> {
       );
     }
     return (
-      <div>
-        <div className="place-page">
-          <img
-            className={"place-page-picture"}
-            src={this.state.place.image}
-            alt="immagine selezionata"
-          />
-          <div className="l2">
-            <h1 style={{ textAlign: "center" }}>{this.state.place.name}</h1>
-            <p>{this.state.place.description}</p>
-          </div>
+      <div className="container">
+        <div className="left">
+          <div className="place-image" style={{ backgroundImage: `url(` + this.state.place.image + `)` }} />
         </div>
+        <div className="right">
+          <h1 className="title">{this.state.place.name}</h1>
+          <p className="description">{this.state.place.description}</p>
 
-        <div
-          style={{
-            display: "block",
-            minHeight: "1px",
-            width: "100%",
-            border: "1px solid #ddd",
-            overflow: "auto"
-          }}
-        >
+          <div className="my-tag-row">
+
+            <div className="my-tag-contaiener">
+              <div className="my-tag">
+                <span className="tag-title">#arte</span>
+              </div>
+              <div className="my-tag">
+                <span className="tag-title">#quadro</span>
+              </div>
+            </div>
+
+          </div>
+          <h1 className="title margin-bottom">Altre immagini</h1>
+
           <Gallery images={images} enableImageSelection={false} />
         </div>
+
       </div>
     );
   }

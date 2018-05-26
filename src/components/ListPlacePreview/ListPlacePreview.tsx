@@ -24,7 +24,7 @@ export default class PlacePreview extends React.PureComponent {
                 adipiscing elit. Proin lorem felis, lobortis quis massa quis, auctor
               imperdiet ante.</p>
               <div className="tag">
-                <span className="tag-title">#quadro</span>
+                <span className="tag-title">#luogo</span>
               </div>
             </div>
           </div>

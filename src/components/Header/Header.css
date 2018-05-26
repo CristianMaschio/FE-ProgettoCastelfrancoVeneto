@@ -1,36 +1,59 @@
-.header {
-    overflow: hidden;
-    background-color: #FF9900;
-    height: 3em;
-    padding-right: 1em;
-  }
+:root {
+  --big: 26px;
+  --normal: 20px;
+  --small: 18px;
+  --samller: 14px;
+}
 
-  .header a{
-      display: flex;
-      color: #FBFEF9;
-      padding-left: 1em;
-      align-items: center;
-      vertical-align: center;
-      height: 100%;
-      margin: auto;
-  }
-  /* Change the background color on mouse-over */
+.header {
+  overflow: hidden;
+  background-color: #FF9900;
+  height: 3em;
+  padding-right: 10px;
+}
+
+.header a {
+  display: flex;
+  color: #FBFEF9;
+  padding-left: 10px;
+  align-items: center;
+  vertical-align: center;
+  height: 100%;
+  margin: auto;
+}
+
+/* Change the background color on mouse-over */
+
 .header a:hover {
-    color: black;
-  }
-  
-  /* Style the active/current link*/
-  .header a.active {
-    color: white;
-  }
+  color: black;
+}
+
+/* Style the active/current link*/
+
+.header a.active {
+  color: white;
+}
 
 .leftHeader {
-    float: left;
-    font-size: 2em;
-    font-weight: bold;
+  font-family: "Raleway-Bold";
+  float: left;
+  font-size: var(--big);
+  font-weight: bold;
 }
 
 .rightHeader {
-    float: right;
-    font-weight: bold;
+  font-family: "Raleway-Regular";
+  float: right;
+  font-weight: bold;
+  font-size: var(--samller);
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../services/fonts/Raleway-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../services/fonts/Raleway-Regular.ttf) format("truetype");
 }
