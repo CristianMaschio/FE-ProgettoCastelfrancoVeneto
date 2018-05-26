@@ -14,6 +14,14 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
     super(props);
   }
 
+  getShortDescription(description: string) {
+    if (description.length > 230) {
+      return description.substring(0, 230);
+    } else {
+      return description;
+    }
+  }
+
   renderPlacePreview(place: Place) {
     return (
       <Link to={`/Item/${place.id}`} key={place.id}>
@@ -68,7 +76,7 @@ export default class ListPlacePreview extends React.PureComponent<Props> {
                 </div>
               </>
             )}
-            <span className="descriptionItem">{place.description} </span>
+            <span className="descriptionItem">{this.getShortDescription(place.description)} </span>
             <div className="tag">
               <span className="tag-title">
                 {place.tags.map(tag => tag.title)})}
