@@ -19,7 +19,7 @@ export default class ImageScan extends React.PureComponent<Props, State> {
     super(props);
 
     this.state = {
-      webcamSwitch: true
+      webcamSwitch: false
     };
 
     this.capture = this.capture.bind(this);
@@ -30,24 +30,40 @@ export default class ImageScan extends React.PureComponent<Props, State> {
   }
 
   startStream = () => {
+
+    document.getElementById("c").style.display = "none";
+    document.getElementById("v").style.display = "block";
+
+    this.setState({ webcamSwitch: true });
+
     navigator.mediaDevices.enumerateDevices().then(res => {
       console.log(res);
-      navigator.getUserMedia({ video: { deviceId: res[5].deviceId } }, (stream) => {
-        const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-      }, (err) => { alert("there was an error " + err); });
+      if (res.length > 5) {
+        navigator.getUserMedia({ video: { deviceId: res[5].deviceId } }, (stream) => {
+          const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        }, (err) => { alert("there was an error " + err); });
+      } else {
+        navigator.getUserMedia({ video: true, audio: false }, (stream) => {
+          const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        }, (err) => { alert("there was an error " + err); });
+      }
     });
   }
 
   capture = () => {
 
-    this.setState({ webcamSwitch: false });
+    document.getElementById("c").style.display = "block";
+    document.getElementById("v").style.display = "none";
 
     const video: HTMLVideoElement = document.getElementById("v") as HTMLVideoElement;
     const canvas: HTMLCanvasElement = document.getElementById("c") as HTMLCanvasElement;
 
-    canvas.getContext("2d").drawImage(video, 0, 0, 300, 300, 0, 0, 300, 300);
+    canvas.getContext("2d").drawImage(video, 0, 0, 360, 290);
+
     const imageSrc = canvas.toDataURL("image/png");
 
     const BASE64_MARKER = ';base64,';
@@ -101,18 +117,13 @@ export default class ImageScan extends React.PureComponent<Props, State> {
       );
     }
     return (
-      <div className="container">
-        {/* {this.state.webcamSwitch && <Webcam
-          audio={false}
-          height={window.innerHeight - 200}
-          width={window.innerWidth}
-          ref={this.setRef}
-          screenshotFormat="image/jpeg"
-        />} */}
-        <button onClick={this.startStream}>Stream</button>
-        <button onClick={this.capture}>Capture photo</button>
-        <video id="v" width="400" height="300" />
-        <canvas id="c" width="400" height="300" />
+      <div className="screen-view">
+        <video className="fotocamera-stream" id="v" width="300" height="300" />
+        <canvas className="canvas-fotocamera" id="c" width="300" height="300" />
+        <div className="button-actions">
+          <button className="button-stream" onClick={this.startStream}>Start</button>
+          <button className="button-camera" onClick={this.capture}>Scatta</button>
+        </div>
       </div>
     );
   }
