@@ -1,5 +1,7 @@
 # FE-ProgettoCastelfrancoVeneto
 
+![App preview](https://i.ibb.co/Yb2zBGC/Annotazione-2019-08-21-000349.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
